@@ -1,23 +1,21 @@
 package com.bridgelab;
-
-/**
- * UC1:- Create an Employee Payroll Service to Read and Write Employee
- * Payroll to a Console - Create Employee Payroll Class of id, name and Salary
- */
-
-import java.util.Scanner;
-import java.util.List;
 import java.util.ArrayList;
-public class EmployeePayrollService {
-    private List<EmployeePayrollData> employeePayrollList;
+import java.util.List;
+import java.util.Scanner;
+public class EmployeePayrollImpl {
 
-    public EmployeePayrollService() {
+    public static enum IOService {
+        FILE_IO, CONSOLE_IO, DB_IO, REST_IO
+    }
+
+    private List<EmployeePayrollData> employeePayrollList = new ArrayList<>();;
+
+    public EmployeePayrollImpl() {
         employeePayrollList = new ArrayList<>();
     }
 
-
     public static void main(String[] args) {
-        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        EmployeePayrollImpl employeePayrollService = new EmployeePayrollImpl();
         Scanner consoleInputReader = new Scanner(System.in);
         employeePayrollService.readEmployeePayrollData(consoleInputReader);
         employeePayrollService.writeEmployeePayrollData();
@@ -34,7 +32,7 @@ public class EmployeePayrollService {
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
 
-    void writeEmployeePayrollData() {
+    private void writeEmployeePayrollData() {
         System.out.println("\nWriting Employee Payroll to console\n" + employeePayrollList);
     }
 }

@@ -1,5 +1,6 @@
 package com.bridgelab;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -94,5 +95,17 @@ public class EmployeePayrollService {
     }
 
 
+    public void fileReader(){
+        try {
+            BufferedReader b = new BufferedReader(new FileReader("C:\\Users\\ULLASKUMAR K\\ullas.txt"));
+            String s;
+            while ((s = b.readLine()) != null){
+                System.out.println(s);
+            }
+        }
+        catch (Exception e){
+            return;
+        }
+    }
 }
 
